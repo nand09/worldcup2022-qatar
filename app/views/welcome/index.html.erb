@@ -1,2 +1,77 @@
-<h2>Hello World </h2>
-<p>The Time is now <%= Time.now %></p>
+<div id="currentMatches">
+<h1>Current Matches </h1>
+<% if @current_matches.present? %>
+<table class="greyGridTable">
+<tr>
+<th>Home Team</th>
+<th>Away Team</th>
+<th>score</th>
+</tr>
+    <% @current_matches.each do |match_data| %>
+        <tr> 
+            <td><%= match_data["home_team"]["name"] %></td>
+            <td><%= match_data["away_team"]["name"] %></td>
+            <td><%= "#{match_data['home_team']['goals']}- #{match_data['away_team']['goals']} " %> </td>
+        </tr>
+    <% end %>
+</table>
+<% else %>
+<p>No games currently </p>
+<% end %>
+
+<hr>
+</div>
+
+<div id="matchesInfo">
+<h1>Matches Today</h1>
+<% if @matches_today %>
+    <table class="greyGridTable">
+    <tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Time</th>
+    </tr>
+
+        <% @matches_today.each do |match_data| %>
+            <tr> 
+                <td><%= match_data["home_team"]["name"] %></td>
+                <td><%= match_data["away_team"]["name"] %></td>
+                <td><%= match_data["datetime"].to_date %> </td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <p>No matches today. did the world cup end? :(</p>
+<% end %>
+</div>
+
+<hr>
+
+<div id="firstStageMatches">
+
+<h1>First Stage Results</h1>
+<% if @all_matches_data.present? %>
+    <table class="greyGridTable">
+    <tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Score</th>
+    <th>Attendance</th>
+    </tr>
+
+        <% @all_matches_data.each do |match_data| %>
+            <% if match_data["stage_name"] == "First stage"%>
+                <tr> 
+                    <td><%= match_data["home_team"]["name"] %></td>
+                    <td><%= match_data["away_team"]["name"] %></td>
+                    <td><%= "#{match_data['home_team']['goals']} - #{match_data['away_team']['goals']} " %> </td>
+                    <td><%= match_data["attendance"]%></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+<% else %>
+    <p>No matches today. did the world cup end? :(</p>
+<% end %>
+
+</div>

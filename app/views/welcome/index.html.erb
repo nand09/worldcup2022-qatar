@@ -1,14 +1,12 @@
 <div id="currentMatches">
 <h1>Current Matches </h1>
 <% if @current_matches.present? %>
-<%= render partial: "current_matches"%>
-
+    <%= render partial: "current_matches"%>
 <% else %>
     <%= render partial: "last_game_result" %>
 <% end %>
-
-<hr>
 </div>
+<hr>
 
 <div id="matchesInfo">
 <h1>Matches Today</h1>
@@ -20,6 +18,7 @@
 </div>
 
 <hr>
+
 <h1>Round of 16 Stage Results</h1>
 <div id="second-round-matches">
 
@@ -28,10 +27,10 @@
 <% else %>
     <p>No matches today. did the world cup end? :(</p>
 <% end %>
-
-
 </div>
+
 <hr>
+
 <h1>First Stage Results</h1>
 
 <div id="firstStageMatches">

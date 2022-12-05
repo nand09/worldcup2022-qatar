@@ -1,0 +1,19 @@
+<table class="greyGridTable">
+    <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Score</th>
+        <th>Attendance</th>
+    </tr>
+
+        <% @all_matches_data.each do |match_data| %>
+            <% if match_data["stage_name"] == "Round of 16"%>
+                <tr> 
+                    <td><%= match_data["home_team"]["name"] %></td>
+                    <td><%= match_data["away_team"]["name"] %></td>
+                    <td><%= "#{match_data['home_team']['goals']} - #{match_data['away_team']['goals']} " %> </td>
+                    <td><%= match_data["attendance"]%></td>
+                </tr>
+            <% end %>
+        <% end %>
+</table>

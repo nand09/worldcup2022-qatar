@@ -1,0 +1,15 @@
+<h2>Last Game Result</h2>
+
+<table class="greyGridTable">
+    <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Score</th>
+    </tr>
+    <tr> 
+        <td><%= @last_match["home_team"]["name"] %></td>
+        <td><%= @last_match["away_team"]["name"] %></td>
+        <td><%= "#{@last_match['home_team']['goals']} - #{@last_match['away_team']['goals']} " %> </td>
+    </tr>
+
+</table>

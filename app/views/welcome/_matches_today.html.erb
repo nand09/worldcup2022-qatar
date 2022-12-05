@@ -1,0 +1,18 @@
+<table class="greyGridTable">
+    <tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Time</th>
+    <th>Score </th>
+    <th>Status</th>
+    </tr>
+        <% @matches_today.each do |match_data| %>
+            <tr> 
+                <td><%= match_data["home_team"]["name"] %></td>
+                <td><%= match_data["away_team"]["name"] %></td>
+                <td><%= match_data["datetime"].to_datetime.strftime('%m/%d/%Y - %H:%M %P') %> </td>
+                <td><%= "#{match_data['home_team']['goals']} - #{match_data['away_team']['goals']} " %></td>
+                <td><%= match_data["status"].eql?("completed") ? match_data["status"] : "scheduled" %></td>
+            </tr>
+        <% end %>
+    </table>

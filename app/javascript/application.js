@@ -3,57 +3,18 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 
-const currentMatch = async () => {
-    const response = await fetch('https://worldcupjson.net/matches/current');
-    const currentMatchesJson = await response.json(); //extract JSON from the http response
-    // do something with myJson
-    console.log(currentMatchesJson);
-    var matchesInfoElement = document.getElementById("matchesInfo");
-    
-    currentMatchesJson.forEach(function (item, index) {
-        console.log(item, index);
-    
-    })
-    
-  }
+  window.addEventListener('load', function() {
+    console.log('All assets are loaded');
 
-const matchesToday = async () => {
-    const response = await fetch("https://worldcupjson.net/matches/today");
-    const matchesTodayJson = await response.json();
-    var matchesInfoElement = document.getElementById("matchesInfo");
+    // function toggleADiv(divId) {
+    //     var x = document.getElementsByClassName(divId).nextElementSibling;
+    //     if (x.style.display === "none") {
+    //       x.style.display = "block";
+    //     } else {
+    //       x.style.display = "none";
+    //     }
+    //   }
 
-    matchesTodayJson.forEach(function (item, index) {
-        // matchesInfoElement.innerHTML += "<p>" + index + ":" + item.away_team.name + "</p>"
-        `
-        <table>
-  <tr>
-    <th>Home Team</th>
-    <th>Away Team</th>
-    <th>Score</th>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-</table>
-        `
-    })
+    //   toggleADiv("display-div");
 
-}
-
-function showMatchInfo(){
-    if (!currentMatch.length == 0) {
-        document.getElementById("matchesInfo").innerHTML += currentMatch
-        console.log(currentMatch)
-    }    
-}
-
-// showMatchInfo()
-// matchesToday();
-
+});

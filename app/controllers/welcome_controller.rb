@@ -5,5 +5,7 @@ class WelcomeController < ApplicationController
         @matches_today = WorldCup.matches_today
         @all_matches_data = WorldCup.all_matches_info
         @last_match = WorldCup.last_match
+        @next_match = WorldCup.next_match 
+        @quarter_final_matches = WorldCup.quarter_final_matches
     end
 end

@@ -1,0 +1,12 @@
+<table class="greyGridTable">
+<tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Time</th>
+</tr>
+    <tr> 
+        <td><%= @next_match["home_team"]["name"] %></td>
+        <td><%= @next_match["away_team"]["name"] %></td>
+        <td><%= @next_match["datetime"].to_datetime.strftime('%m/%d/%Y - %H:%M %P') %></td>
+    </tr>
+</table>

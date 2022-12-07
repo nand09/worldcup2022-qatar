@@ -34,6 +34,15 @@ class WorldCup
         future_matches.first
     end
 
+    def self.quarter_final_matches
+        quarter_final_matches = []
+        self.all_matches_info.each do |match|
+            if match["stage_name"] == "Quarter-final"
+                quarter_final_matches << match
+            end
+        end
+    end
+
 
     private
 

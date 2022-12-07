@@ -10,35 +10,41 @@
 
 <div id="matchesInfo">
 <h1>Matches Today</h1>
-<% if @matches_today %>
+<% if @matches_today.present? %>
     <%= render partial: "matches_today" %>
 <% else %>
-    <p>No matches today. did the world cup end? :(</p>
+    <h2>Next Match</h2>
+    <%= render partial: "next_match" %>
 <% end %>
 </div>
 
 <hr>
 
-<h1>Round of 16 Stage Results</h1>
-<div id="second-round-matches">
+<button type="button" class="collapsible">Round of 16 Stage Results</button>
+<div class="content">
+    <div id="second-round-matches">
 
-<% if @all_matches_data.present? %>
-    <%= render partial: "round_of_16" %>
-<% else %>
-    <p>No matches today. did the world cup end? :(</p>
-<% end %>
+    <% if @all_matches_data %>
+        <%= render partial: "round_of_16" %>
+    <% else %>
+        <p>No matches today. did the world cup end? :(</p>
+    <% end %>
+    </div>
 </div>
 
 <hr>
 
-<h1>First Stage Results</h1>
 
-<div id="firstStageMatches">
-<% if @all_matches_data.present? %>
-    <%= render partial: "first_stage" %>
-<% else %>
-    <p>No matches today. did the world cup end? :(</p>
-<% end %>
+<button type="button" class="collapsible">First Stage Results</button>
+<div class="content">
+    <div id="firstStageMatches">
+    <% if @all_matches_data.present? %>
+        <%= render partial: "first_stage" %>
+    <% else %>
+        <p>No matches today. did the world cup end? :(</p>
+    <% end %>
 
+    </div>
 </div>
+
 <hr>

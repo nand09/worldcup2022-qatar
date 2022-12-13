@@ -1,0 +1,16 @@
+<table class="greyGridTable">
+    <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Score</th>
+        <th>Attendance</th>
+    </tr>
+        <% @semi_final_matches.each do |match_data| %>
+                <tr> 
+                    <td><%= match_data["home_team"]["name"] %></td>
+                    <td><%= match_data["away_team"]["name"] %></td>
+                    <td><%= "#{match_data['home_team']['goals']} - #{match_data['away_team']['goals']} " %> </td>
+                    <td><%= match_data["attendance"]%></td>
+                </tr>
+        <% end %>
+</table>
